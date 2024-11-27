@@ -1,5 +1,8 @@
+import os
 from logging import CRITICAL, getLogger
-from os import path
+from re import search
+from types import FunctionType
+from warnings import filterwarnings
 
 from matplotlib import patches, pyplot, rcParams
 from numpy import array, cos, deg2rad, linspace, pi, sin, sqrt, sum, zeros
@@ -9,12 +12,9 @@ try:
     from pymol2 import (
         PyMOL,  # Please refer to https://pymol.org/2/ for download of PyMOL library
     )
-except ModuleNotFoundError:
-    print("PyMOL is not installed!")
+except ModuleNotFoundError as e:
+    raise ModuleNotFoundError("PyMOL is not installed!") from e
 
-from re import search
-from types import FunctionType
-from warnings import filterwarnings
 
 filterwarnings("ignore")
 getLogger("matplotlib").setLevel(CRITICAL)
@@ -1368,7 +1368,7 @@ class Figure:
             raise ValueError("We can't choose between \'image_path\' and \'widget_type|widget_attributes\'!")
 
         if image_path is None and (widget_type is not None and widget_attributes is not None):
-            root_path = path.abspath(__file__).replace("\\", "/")[:-17] + "docs/source/_static/widgets/"
+            root_path = os.path.abspath(__file__).replace("\\", "/")[:-17] + "docs/source/_static/widgets/"
             image_path = root_path + widget_type + "[" + widget_attributes.replace(", ", ".") + "]"
             image_path += image_format
 

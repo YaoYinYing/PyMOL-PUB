@@ -1,4 +1,9 @@
-from molpub import DefaultStructureImage, HighlightStructureImage, Figure, obtain_widget_icon
+from molpub import (
+    DefaultStructureImage,
+    Figure,
+    HighlightStructureImage,
+    obtain_widget_icon,
+)
 
 
 def baseline(file_parent_path, save_parent_path):

@@ -1,24 +1,31 @@
-from sys import exit, argv
+import os
 from collections import Counter
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QGuiApplication, QPixmap, QFont
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QPushButton, QWidget, QMessageBox
-from numpy import array, min, max, where, zeros, any
-from os import path
+from sys import argv, exit
+
+from numpy import any, array, max, min, where, zeros
 from PIL import Image
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont, QGuiApplication, QPixmap
+from PyQt5.QtWidgets import (
+    QApplication,
+    QFileDialog,
+    QMainWindow,
+    QMessageBox,
+    QPushButton,
+    QWidget,
+)
 
-from molpub.layouts import HighlightStructureImage, Figure
+from molpub.layouts import Figure, HighlightStructureImage
 
-root_path = path.dirname(path.abspath(__file__)).replace("\\", "/")
+root_path = os.path.dirname(os.path.abspath(__file__)).replace("\\", "/")
 
 global image_list
 global statistical_list
 global structure
 
 
-class MainWindow(object):
-
+class MainWindow:
     def __init__(self):
         self.central_widget = None
         self.history_label, self.history_browser, self.history_button = None, None, None
@@ -231,7 +238,7 @@ class MainWindow(object):
 
 class EntryWindow(QMainWindow, MainWindow):
     def __init__(self):
-        super(EntryWindow, self).__init__()
+        super().__init__()
         self.setupUi(self)
 
         # noinspection PyUnresolvedReferences
@@ -559,7 +566,7 @@ class EntryWindow(QMainWindow, MainWindow):
             self.total_column_combo_box.setCurrentText(self.format_text[-1])
 
 
-class ClickSurface(object):
+class ClickSurface:
     def __init__(self):
         self.label = None
         self.label_text_edit = None
@@ -614,7 +621,7 @@ class ClickSurface(object):
 
 class DetailWindow(QWidget, ClickSurface):
     def __init__(self, layout, order):
-        super(DetailWindow, self).__init__()
+        super().__init__()
         self.detail_button_list = None
         self.setupUi(self)
         self.draw_layout(layout, order)
@@ -644,7 +651,7 @@ class DetailWindow(QWidget, ClickSurface):
             self.detail_button_list[i].show()
 
 
-class SelectionWindow(object):
+class SelectionWindow:
     def __init__(self):
         self.structure_image_button = None
         self.statistical_content_button = None
@@ -691,11 +698,11 @@ class SelectionWindow(object):
 
 class SelectWindow(QMainWindow, SelectionWindow):
     def __init__(self):
-        super(SelectWindow, self).__init__()
+        super().__init__()
         self.setupUi(self)
 
 
-class ContentWindow(object):
+class ContentWindow:
     def __init__(self):
         self.path_label = None
         self.path_browser = None
@@ -788,7 +795,7 @@ class StatisticalWindow(QMainWindow, ContentWindow):
     # noinspection PyGlobalUndefined
     def __init__(self):
         global statistical_list
-        super(StatisticalWindow, self).__init__()
+        super().__init__()
         self.setupUi(self)
         statistical_list = []
         self.draw_number = 0
@@ -904,8 +911,7 @@ class StatisticalWindow(QMainWindow, ContentWindow):
         self.graphics_view.setScene(self.scene)
 
 
-class ImageWindow1(object):
-
+class ImageWindow1:
     def __init__(self):
         self.refresh_button = None
         self.next_button = None
@@ -1007,10 +1013,9 @@ class ImageWindow1(object):
 
 
 class StructureImage1(QMainWindow, ImageWindow1):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
-        super(StructureImage1, self).__init__()
+        super().__init__()
         self.setupUi(self)
         global image_list
         global structure
@@ -1131,7 +1136,7 @@ class StructureImage1(QMainWindow, ImageWindow1):
         self.graphics_view.setScene(self.scene)
 
 
-class ImageWindow2(object):
+class ImageWindow2:
     def __init__(self):
         self.refresh_button = None
         self.next_button = None
@@ -1258,10 +1263,9 @@ class ImageWindow2(object):
 
 
 class StructureImage2(QMainWindow, ImageWindow2):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
-        super(StructureImage2, self).__init__()
+        super().__init__()
         self.setupUi(self)
         global image_list
         global structure
@@ -1407,7 +1411,7 @@ class StructureImage2(QMainWindow, ImageWindow2):
             structure.load_pymol(load_path="./temp/image" + str(self.start_number - 1) + ".pse")
 
 
-class ImageWindow3(object):
+class ImageWindow3:
     def __init__(self):
         self.refresh_button = None
         self.next_button = None
@@ -1554,10 +1558,9 @@ class ImageWindow3(object):
 
 
 class StructureImage3(QMainWindow, ImageWindow3):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
-        super(StructureImage3, self).__init__()
+        super().__init__()
         self.setupUi(self)
         global image_list
         global structure
@@ -1765,7 +1768,7 @@ class StructureImage3(QMainWindow, ImageWindow3):
             structure.load_pymol(load_path="./temp/image" + str(self.start_number - 1) + ".pse")
 
 
-class ImageWindow4(object):
+class ImageWindow4:
     def __init__(self):
         self.refresh_button = None
         self.next_button = None
@@ -1882,10 +1885,9 @@ class ImageWindow4(object):
 
 
 class StructureImage4(QMainWindow, ImageWindow4):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
-        super(StructureImage4, self).__init__()
+        super().__init__()
         self.setupUi(self)
         global image_list
         global structure
@@ -2041,7 +2043,7 @@ class StructureImage4(QMainWindow, ImageWindow4):
             structure.load_pymol(load_path="./temp/image" + str(self.start_number - 1) + ".pse")
 
 
-if __name__ == '__main__':
+def main():
     # noinspection PyTypeChecker
     QGuiApplication.setAttribute(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
 
@@ -2157,3 +2159,7 @@ if __name__ == '__main__':
     structure_window_4.next_button.clicked.connect(structure_window_4.window_clear)
 
     exit(app.exec_())
+
+
+if __name__ == "__main__":
+    main()

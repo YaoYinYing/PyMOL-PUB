@@ -19,7 +19,6 @@ classifiers = [
 keywords = ["pymol", "pymol-pub", "matplotlib", "structure-cluster", "structure-alignment", "manuscript-figure"]
 dependencies = [
     "numpy>=1.21.2",
-    "pymol",
     "pillow>=8.2.0",
     "biopython>=1.78",
     "matplotlib>=3.2.0",

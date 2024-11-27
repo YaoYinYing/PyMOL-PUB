@@ -7,6 +7,10 @@ on:
     # Automatically run on every Sunday
     - cron:  '0 0 * * 0'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest

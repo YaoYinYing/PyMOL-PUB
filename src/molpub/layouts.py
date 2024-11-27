@@ -1365,7 +1365,7 @@ class Figure:
         :type linecolor: str
         """
         if image_path is not None and (widget_type is not None or widget_attributes is not None):
-            raise ValueError("We can't choose between \'image_path\' and \'widget_type|widget_attributes\'!")
+            raise ValueError("We can't choose between 'image_path' and 'widget_type|widget_attributes'!")
 
         if image_path is None and (widget_type is not None and widget_attributes is not None):
             root_path = os.path.abspath(__file__).replace("\\", "/")[:-17] + "docs/source/_static/widgets/"

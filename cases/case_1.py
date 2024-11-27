@@ -63,14 +63,8 @@ def designed(file_parent_path, temp_parent_path, save_parent_path):
     )
     obtain_widget_icon(save_path=temp_parent_path + "arrow(315).png", widget_type="arrow", params={"degree": 315})
     case.set_image(
-        image_path=temp_parent_path +
-        "arrow(315).png",
-        locations=[
-            0.525,
-            0.27,
-            0.15,
-            0.15],
-        transparent=True)
+        image_path=temp_parent_path + "arrow(315).png", locations=[0.525, 0.27, 0.15, 0.15], transparent=True
+    )
     case.save_figure(save_parent_path + "1.png")
 
 

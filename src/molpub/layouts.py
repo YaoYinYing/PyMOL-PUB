@@ -6,8 +6,9 @@ from numpy import array, cos, deg2rad, linspace, pi, sin, sqrt, sum, zeros
 from PIL import Image, PngImagePlugin
 
 try:
-    from pymol2 import \
-        PyMOL  # Please refer to https://pymol.org/2/ for download of PyMOL library
+    from pymol2 import (
+        PyMOL,  # Please refer to https://pymol.org/2/ for download of PyMOL library
+    )
 except ModuleNotFoundError:
     print("PyMOL is not installed!")
 

@@ -4,15 +4,39 @@ from logging import CRITICAL, getLogger
 from typing import Iterator
 from warnings import filterwarnings
 
-from Bio.PDB import (MMCIFIO, PDBIO, Atom, Chain, MMCIFParser, PDBParser,
-                     Residue, Structure)
-from numpy import (arange, argmax, argmin, array, dot, linalg, max, mean, min,
-                   ndarray, sqrt, sum, transpose, where, zeros)
+from Bio.PDB import (
+    MMCIFIO,
+    PDBIO,
+    Atom,
+    Chain,
+    MMCIFParser,
+    PDBParser,
+    Residue,
+    Structure,
+)
+from numpy import (
+    arange,
+    argmax,
+    argmin,
+    array,
+    dot,
+    linalg,
+    max,
+    mean,
+    min,
+    ndarray,
+    sqrt,
+    sum,
+    transpose,
+    where,
+    zeros,
+)
 from scipy.spatial.transform import Rotation
 
 try:
-    from pymol2 import \
-        PyMOL  # Please refer to https://pymol.org/2/ for download of PyMOL library
+    from pymol2 import (
+        PyMOL,  # Please refer to https://pymol.org/2/ for download of PyMOL library
+    )
 except ModuleNotFoundError:
     print("PyMOL is not installed!")
 

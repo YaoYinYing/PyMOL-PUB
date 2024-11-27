@@ -26,7 +26,6 @@ global structure
 
 
 class MainWindow:
-
     def __init__(self):
         self.central_widget = None
         self.history_label, self.history_browser, self.history_button = None, None, None
@@ -913,7 +912,6 @@ class StatisticalWindow(QMainWindow, ContentWindow):
 
 
 class ImageWindow1:
-
     def __init__(self):
         self.refresh_button = None
         self.next_button = None
@@ -1015,7 +1013,6 @@ class ImageWindow1:
 
 
 class StructureImage1(QMainWindow, ImageWindow1):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
         super().__init__()
@@ -1266,7 +1263,6 @@ class ImageWindow2:
 
 
 class StructureImage2(QMainWindow, ImageWindow2):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
         super().__init__()
@@ -1562,7 +1558,6 @@ class ImageWindow3:
 
 
 class StructureImage3(QMainWindow, ImageWindow3):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
         super().__init__()
@@ -1890,7 +1885,6 @@ class ImageWindow4:
 
 
 class StructureImage4(QMainWindow, ImageWindow4):
-
     # noinspection PyGlobalUndefined
     def __init__(self):
         super().__init__()

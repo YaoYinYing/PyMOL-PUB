@@ -1,7 +1,9 @@
-from matplotlib import pyplot
-from molpub import obtain_widget_icon
 from os import remove
+
+from matplotlib import pyplot
 from PIL import Image
+
+from molpub import obtain_widget_icon
 
 
 def combination_1():

@@ -1,4 +1,5 @@
-from molpub import DefaultStructureImage, HighlightStructureImage, Figure, obtain_widget_icon
+from molpub import (DefaultStructureImage, Figure, HighlightStructureImage,
+                    obtain_widget_icon)
 
 
 def baseline(file_parent_path, save_parent_path):
@@ -53,9 +54,25 @@ def designed(file_parent_path, temp_parent_path, save_parent_path):
     obtain_widget_icon(save_path=temp_parent_path + "arrow(90).png", widget_type="arrow", params={"degree": 90})
     case.set_image(image_path=temp_parent_path + "arrow(90).png", locations=[0.422, 0.44, 0.15, 0.15], transparent=True)
     obtain_widget_icon(save_path=temp_parent_path + "arrow(225).png", widget_type="arrow", params={"degree": 225})
-    case.set_image(image_path=temp_parent_path + "arrow(225).png", locations=[0.325, 0.27, 0.15, 0.15], transparent=True)
+    case.set_image(
+        image_path=temp_parent_path +
+        "arrow(225).png",
+        locations=[
+            0.325,
+            0.27,
+            0.15,
+            0.15],
+        transparent=True)
     obtain_widget_icon(save_path=temp_parent_path + "arrow(315).png", widget_type="arrow", params={"degree": 315})
-    case.set_image(image_path=temp_parent_path + "arrow(315).png", locations=[0.525, 0.27, 0.15, 0.15], transparent=True)
+    case.set_image(
+        image_path=temp_parent_path +
+        "arrow(315).png",
+        locations=[
+            0.525,
+            0.27,
+            0.15,
+            0.15],
+        transparent=True)
     case.save_figure(save_parent_path + "1.png")
 
 

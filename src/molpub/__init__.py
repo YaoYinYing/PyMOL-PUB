@@ -1,9 +1,13 @@
-from matplotlib import font_manager
-from molpub.layouts import DefaultStructureImage, PropertyStructureImage, HighlightStructureImage
-from molpub.layouts import obtain_widget_icon, Figure
-from molpub.handles import Monitor, Score, similar, cluster, align, set_properties, set_difference, kmer
-from molpub.handles import load_structure_from_file, save_structure_to_file
 import os
+
+from matplotlib import font_manager
+
+from molpub.handles import (Monitor, Score, align, cluster, kmer,
+                            load_structure_from_file, save_structure_to_file,
+                            set_difference, set_properties, similar)
+from molpub.layouts import (DefaultStructureImage, Figure,
+                            HighlightStructureImage, PropertyStructureImage,
+                            obtain_widget_icon)
 
 # load required font formats.
 font_files = font_manager.findSystemFonts(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts"))

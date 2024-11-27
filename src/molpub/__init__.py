@@ -3,9 +3,12 @@ from molpub.layouts import DefaultStructureImage, PropertyStructureImage, Highli
 from molpub.layouts import obtain_widget_icon, Figure
 from molpub.handles import Monitor, Score, similar, cluster, align, set_properties, set_difference, kmer
 from molpub.handles import load_structure_from_file, save_structure_to_file
-from os import path
+import os
 
 # load required font formats.
-font_files = font_manager.findSystemFonts(path.abspath(__file__).replace("\\", "/")[:-11] + "fonts/")
+font_files = font_manager.findSystemFonts(os.path.abspath(__file__).replace("\\", "/")[:-11] + "fonts/")
 for font_file in font_files:
     font_manager.fontManager.addfont(font_file)
+
+
+__all__ = ['DefaultStructureImage', 'PropertyStructureImage', 'HighlightStructureImage','obtain_widget_icon', 'Figure','Monitor','Score', 'similar', 'cluster', 'align', 'set_properties', 'set_difference', 'kmer','load_structure_from_file','save_structure_to_file']

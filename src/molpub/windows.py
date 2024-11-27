@@ -5,12 +5,12 @@ from PyQt5.QtGui import QGuiApplication, QPixmap, QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QPushButton, QWidget, QMessageBox
 from numpy import array, min, max, where, zeros, any
-from os import path
+import os
 from PIL import Image
 
 from molpub.layouts import HighlightStructureImage, Figure
 
-root_path = path.dirname(path.abspath(__file__)).replace("\\", "/")
+root_path = os.path.dirname(os.path.abspath(__file__)).replace("\\", "/")
 
 global image_list
 global statistical_list
@@ -2041,7 +2041,7 @@ class StructureImage4(QMainWindow, ImageWindow4):
             structure.load_pymol(load_path="./temp/image" + str(self.start_number - 1) + ".pse")
 
 
-if __name__ == '__main__':
+def main():
     # noinspection PyTypeChecker
     QGuiApplication.setAttribute(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
 
@@ -2157,3 +2157,7 @@ if __name__ == '__main__':
     structure_window_4.next_button.clicked.connect(structure_window_4.window_clear)
 
     exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
